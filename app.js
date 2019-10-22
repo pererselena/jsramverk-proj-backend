@@ -6,12 +6,21 @@ const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const index = require('./routes/index.js');
 const auth = require('./src/auth.js');
+var mongoose = require('mongoose');
 
 
 
 const app = express();
 const router = express.Router();
 const port = 1337;
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
+mongoose.connect('mongodb://localhost:27017/trading');
+
 
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json

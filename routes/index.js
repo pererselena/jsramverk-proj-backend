@@ -1,14 +1,17 @@
 'use strict';
+var Product = require('../models/product');
 
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
+    var products = await Product.find(function (err, docs) {
+        return docs;
+    });
     const data = {
         data: {
-            title: "Min me-sida i kursen jsramverk",
-            /* eslint max-len: [1, 600, 4] */
-            msg: `test`
+            title: "Traiding platform i kursen jsramverk",
+            products: products
         }
     };
 
