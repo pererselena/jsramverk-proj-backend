@@ -10,7 +10,7 @@ router.get('/', async function (req, res) {
     });
     const data = {
         data: {
-            title: "Traiding platform i kursen jsramverk",
+            title: "Traiding platform",
             products: products
         }
     };
