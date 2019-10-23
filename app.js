@@ -5,6 +5,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require("body-parser");
 const index = require('./routes/index.js');
+const depot = require('./routes/depot.js');
+
 const auth = require('./src/auth.js');
 var mongoose = require('mongoose');
 
@@ -33,6 +35,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 router.use('/', index);
+router.use('/depot', depot);
 router.post('/login', (req, res) => auth.login(res, req.body));
 router.post('/register', (req, res) => auth.register(res, req.body));
 
