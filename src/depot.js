@@ -16,20 +16,21 @@ const depot = {
         });
         var amount = req.body.amount;
 
-        depot.items.forEach(element => {
-            if (element.product._id === product._id) {
-                element.amount += amount;
-                user.balance -= req.body.price * amount;
-                depot.save();
-                user.save();
-                return res.status(201).json({
-                    data: "bought"
-                });
-            }
-        });
+        // depot.items.forEach(element => {
+        //     if (element.product._id === product._id) {
+        //         element.amount += amount;
+        //         user.balance -= req.body.price * amount;
+        //         depot.save();
+        //         user.save();
+        //         return res.status(201).json({
+        //             data: "bought"
+        //         });
+        //     }
+        // });
         var boughtProduct = {
             product: product,
-            amount: amount
+            amount: amount,
+            boughtPrice: req.body.price
         };
 
         depot.items.push(boughtProduct);
@@ -55,7 +56,7 @@ const depot = {
         var msg = "";
         var status = 200;
         depot.items.forEach(element => {
-            if (element.product._id === product._id) {
+            if (element._id === req.body.order_id) {
                 if (element.amount > amount) {
                     element.amount -= amount;
                     user.balance += req.body.price * amount;
