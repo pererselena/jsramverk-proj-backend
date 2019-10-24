@@ -4,7 +4,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 
 const depot = {
-    buy: function (req) {
+    buy: async function (req) {
         var depot = await Depot.findById(req.body.depot_id, function (err, docs) {
             return docs;
         });
@@ -41,7 +41,7 @@ const depot = {
             data: "bought"
         });
     },
-    sell: function (req) {
+    sell: async function (req) {
         var depot = await Depot.findById(req.body.depot_id, function (err, docs) {
             return docs;
         });
