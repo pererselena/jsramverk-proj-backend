@@ -82,7 +82,7 @@ const auth = {
             });
         }
 
-        bcrypt.hash(password, 10, function (err, hash) {
+        bcrypt.hash(password, 10, async function (err, hash) {
             if (err) {
                 return res.status(500).json({
                     errors: {
@@ -93,9 +93,9 @@ const auth = {
                     }
                 });
             }
-            let depot = new Depot();
+            let depot = await new Depot();
             depot.save();
-            User.create({
+            await User.create({
                 email: email,
                 name: name,
                 password: hash,
@@ -106,20 +106,21 @@ const auth = {
                 function (err, res) {
                     if (err) {
                         next(err);
-                    } else {
-                        let payload = { email: email };
-                        let jwtToken = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
-                        return res.status(201).json({
-                            data: {
-                                type: "success",
-                                message: "User registered",
-                                user: payload,
-                                token: jwtToken
-                            }
-                        });
                     }
+                    return res;
                 }
             )
+            let payload = { email: email };
+            let jwtToken = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+            return res.status(201).json({
+                data: {
+                    type: "success",
+                    message: "User registered",
+                    user: payload,
+                    token: jwtToken
+                }
+            });
+
         });
     },
 
