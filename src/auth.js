@@ -48,7 +48,8 @@ const auth = {
                                 type: "success",
                                 message: "User logged in",
                                 user: payload,
-                                token: jwtToken
+                                token: jwtToken,
+                                userId: userInfo._id
                             }
                         });
                     }
@@ -95,7 +96,7 @@ const auth = {
             }
             let depot = await new Depot();
             depot.save();
-            await User.create({
+            var user = await User.create({
                 email: email,
                 name: name,
                 password: hash,
@@ -117,7 +118,8 @@ const auth = {
                     type: "success",
                     message: "User registered",
                     user: payload,
-                    token: jwtToken
+                    token: jwtToken,
+                    userId: user._id
                 }
             });
 
