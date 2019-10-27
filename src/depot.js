@@ -31,12 +31,18 @@ const depot = {
         //         });
         //     }
         // });
+        if (body.price * amount > user.balance) {
+            return res.status(500).json({
+                data: "Not enough money"
+            });
+        }
         var boughtProduct = {
             product: product,
             amount: amount,
             boughtPrice: body.price
         };
-        console.log(depot);
+
+        
         
         depot.items.push(boughtProduct);
         depot.save();
