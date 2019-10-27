@@ -17,17 +17,6 @@ const depot = {
         });
         var amount = body.amount;
 
-        // depot.items.forEach(element => {
-        //     if (element.product._id === product._id) {
-        //         element.amount += amount;
-        //         user.balance -= req.body.price * amount;
-        //         depot.save();
-        //         user.save();
-        //         return res.status(201).json({
-        //             data: "bought"
-        //         });
-        //     }
-        // });
         if (body.price * amount > user.balance) {
             return res.status(500).json({
                 status: 500,
@@ -107,7 +96,6 @@ const depot = {
         var user = await User.findById(body.user_id, function (err, docs) {
             return docs;
         });
-       
         var money = body.money;
         var msg = "Added money";
         var status = 200;
