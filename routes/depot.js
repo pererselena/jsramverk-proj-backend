@@ -39,6 +39,6 @@ router.put('/sell',
     (req, res) => depot.sell(res, req.body));
 
 router.put('/addmoney',
-    (req, res) => depot.sell(res, req.body));
+    (req, res) => depot.addmoney(res, req.body));
 
 module.exports = router;
