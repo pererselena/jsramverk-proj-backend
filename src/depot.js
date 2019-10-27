@@ -30,6 +30,7 @@ const depot = {
         // });
         if (body.price * amount > user.balance) {
             return res.status(500).json({
+                status: 500,
                 data: "Not enough money"
             });
         }
@@ -47,6 +48,7 @@ const depot = {
         user.save();
 
         return res.status(201).json({
+            status: 201,
             data: "bought"
         });
     },
