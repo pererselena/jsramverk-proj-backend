@@ -5,9 +5,6 @@ var Depot = require('../models/depot')
 
 const depot = {
     buy: async function (res, body) {
-        console.log(body);
-              
-        
         var user = await User.findById(body.user_id, function (err, docs) {
             return docs;
         });
@@ -54,8 +51,6 @@ const depot = {
         });
     },
     sell: async function (res, body) {
-        console.log(body);
-        
         var user = await User.findById(body.user_id, function (err, docs) {
             return docs;
         });
@@ -80,7 +75,6 @@ const depot = {
                     if (index > -1) {
                         depot.items.splice(index, 1);
                         user.balance += body.price * amount;
-                        console.log(user.balance);
                         depot.save();
                         user.save();
                         status = 201;
@@ -98,8 +92,7 @@ const depot = {
                 msg = "Du äger inte produkten!";
             }
         });
-        console.log("status: ", status);
-        
+       
 
         return res.status(status).json({
             data: {
