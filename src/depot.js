@@ -102,6 +102,25 @@ const depot = {
                 detail: msg
             }
         });
+    },
+    addMoney: async function (res, body) {
+        var user = await User.findById(body.user_id, function (err, docs) {
+            return docs;
+        });
+       
+        var money = body.money;
+        var msg = "Added money";
+        var status = 200;
+
+        user.balance += money;
+        user.save();
+
+        return res.status(status).json({
+            data: {
+                status: status,
+                detail: msg
+            }
+        });
     }
 }
 
