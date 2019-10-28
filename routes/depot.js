@@ -2,6 +2,7 @@
 var depot = require('../src/depot');
 var User = require('../models/user');
 var Depot = require('../models/depot');
+const auth = require('../src/auth')
 
 var express = require('express');
 var router = express.Router();
@@ -11,7 +12,9 @@ async function populateDepot(depot) {
     return depot;
 }
 
-router.get('/:id', async function (req, res) {
+router.get('/:id',
+    (req, res, next) => auth.checkToken(req, res, next),
+    async function (req, res) {
     var user = await User.findById(req.params.id, function (err, docs) {
         return docs;
     });
@@ -33,12 +36,15 @@ router.get('/:id', async function (req, res) {
 });
 
 router.put('/buy',
+    (req, res, next) => auth.checkToken(req, res, next),
     (req, res) => depot.buy(res, req.body));
 
-router.put('/sell', 
+router.put('/sell',
+    (req, res, next) => auth.checkToken(req, res, next),    
     (req, res) => depot.sell(res, req.body));
 
 router.put('/addmoney',
+    (req, res, next) => auth.checkToken(req, res, next),
     (req, res) => depot.addMoney(res, req.body));
 
 module.exports = router;

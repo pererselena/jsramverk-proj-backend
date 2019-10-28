@@ -17,7 +17,7 @@ var products = [
         imagePath: 'https://borsvarlden.com/wp-content/uploads/2018/06/bvfa-s-cryptocurrency-0002-960x540.jpg',
         title: 'JSgold',
         description: 'Ordinary gold',
-        rate: 1.002,
+        rate: 1.000,
         variance: 0.6,
         startingPoint: 40
     }),
@@ -25,7 +25,7 @@ var products = [
         imagePath: 'https://borsvarlden.com/wp-content/uploads/2018/06/bvfa-s-cryptocurrency-0002-960x540.jpg',
         title: 'PHPsilver',
         description: 'Ordinary silver',
-        rate: 1.002,
+        rate: 1.000,
         variance: 0.6,
         startingPoint: 30
     }),
@@ -33,7 +33,7 @@ var products = [
         imagePath: 'https://borsvarlden.com/wp-content/uploads/2018/06/bvfa-s-cryptocurrency-0002-960x540.jpg',
         title: 'Vlinux stock',
         description: 'Stock',
-        rate: 1.002,
+        rate: 1.000,
         variance: 0.6,
         startingPoint: 10
     }),
@@ -41,7 +41,7 @@ var products = [
         imagePath: 'https://borsvarlden.com/wp-content/uploads/2018/06/bvfa-s-cryptocurrency-0002-960x540.jpg',
         title: 'Python stock',
         description: 'Stock',
-        rate: 1.002,
+        rate: 1.000,
         variance: 0.6,
         startingPoint: 10
     })
