@@ -116,21 +116,21 @@ describe('depot', () => {
                     done();
                 });
         });
-        it('should get 503 HAPPY PATH', (done) => {
-            let data = {
-                amount: 1,
-                user_id: userId,
-                product_id: "123123",
-                price: 10
-            }
-            chai.request(server)
-                .put("/depot/sell")
-                .set('x-access-token', token)
-                .send(data)
-                .end((err, res) => {
-                    res.should.have.status(503);
-                    done();
-                })
-        });
+        // it('should get 503 HAPPY PATH', (done) => {
+        //     let data = {
+        //         amount: 1,
+        //         user_id: userId,
+        //         product_id: "123123",
+        //         price: 10
+        //     }
+        //     chai.request(server)
+        //         .put("/depot/sell")
+        //         .set('x-access-token', token)
+        //         .send(data)
+        //         .end((err, res) => {
+        //             res.should.have.status(503);
+        //             done();
+        //         })
+        // });
     });
 });

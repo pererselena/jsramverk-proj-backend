@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nyc --reporter=html --reporter=text --reporter=clover mocha \"./test/*.js\" --timeout 10000 --exit",
     "clean": "rm -rf node_modules package-lock.json",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "pretest": "node seed/product-seed.js"
   },
   "repository": {
     "type": "git",
