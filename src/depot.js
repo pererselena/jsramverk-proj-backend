@@ -101,14 +101,7 @@ const depot = {
                 msg = "Du äger inte produkten!";
                 
             }
-            return res.status(status).json({
-                    data: {
-                        status: status,
-                        detail: msg
-                    }
-                });
         });
-       
 
         return res.status(status).json({
             data: {
