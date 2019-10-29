@@ -103,14 +103,9 @@ const auth = {
                 birthday: birthday,
                 depot: depot,
                 balance: 0
-            },
-                function (err, res) {
-                    if (err) {
-                        next(err);
-                    }
-                    return res;
-                }
-            )
+            }).then(res => {
+                return res;
+            })
             let payload = { email: email };
             let jwtToken = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
             return res.status(201).json({
