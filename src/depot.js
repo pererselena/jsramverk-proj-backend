@@ -61,6 +61,12 @@ const depot = {
                     user.save();
                     status = 201;
                     msg = "sold";
+                    return res.status(status).json({
+                        data: {
+                            status: status,
+                            detail: msg
+                        }
+                    });
                 } else if (element.amount === amount) {
                     var index = depot.items.indexOf(element);
                     if (index > -1) {
@@ -70,17 +76,41 @@ const depot = {
                         user.save();
                         status = 201;
                         msg = "sold";
+                        return res.status(status).json({
+                            data: {
+                                status: status,
+                                detail: msg
+                            }
+                        });
                     } else {
                         status = 501;
                         msg = "Okänd orsak :("
+                        return res.status(status).json({
+                            data: {
+                                status: status,
+                                detail: msg
+                            }
+                        });
                     }
                 } else {
                     status = 502;
                     msg = "För få produkter!";
+                    return res.status(status).json({
+                        data: {
+                            status: status,
+                            detail: msg
+                        }
+                    });
                 }
             } else {
                 status = 503;
                 msg = "Du äger inte produkten!";
+                return res.status(status).json({
+                    data: {
+                        status: status,
+                        detail: msg
+                    }
+                });
             }
         });
        
