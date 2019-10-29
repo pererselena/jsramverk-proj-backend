@@ -84,13 +84,7 @@ const depot = {
                         });
                     } else {
                         status = 501;
-                        msg = "Okänd orsak :("
-                        return res.status(status).json({
-                            data: {
-                                status: status,
-                                detail: msg
-                            }
-                        });
+                        msg = "Okänd orsak :(";
                     }
                 } else {
                     status = 502;
@@ -105,13 +99,14 @@ const depot = {
             } else {
                 status = 503;
                 msg = "Du äger inte produkten!";
-                return res.status(status).json({
+                
+            }
+            return res.status(status).json({
                     data: {
                         status: status,
                         detail: msg
                     }
                 });
-            }
         });
        
 
