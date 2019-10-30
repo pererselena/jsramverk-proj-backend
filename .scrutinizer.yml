@@ -2,6 +2,8 @@ build:
   environment:
     variables:
       JWT_SECRET: "ajr490lsmfjskr05fskfwcösdisjflw93mahr95odöasjjd2os75j3öa0euhjak"
+  services:
+    mongo: 4
   nodes:
     coverage:
       tests:
