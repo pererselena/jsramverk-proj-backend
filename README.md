@@ -40,3 +40,11 @@ I src finns auth.js och depot.js. Auth hanterar inloggning och har en funtktion 
 depot.js hanterar köp, sälj och insättning av pengar, med en hantering om användaren inte har en produkt eller har för lite av den.
 
 Jag har valt att lägga alla köp som användaren gör som en order eller item i depån, vilket gör att man kan se flera poster av en köpt produkt. Detta för att man också bättre ska kunna se vad man köpte produkten för.
+
+### Test
+
+Jag har valt att använda mig av, mocha, chai, nyc samt travis och scrutinizer för min CI kedja.
+Jag har valt att använda Travis och Scrutinizer för att de kändes lättarbetade och effektiva i tidigare kursmoment när vi fick lära oss om dem. Det var rätt enkla att komma igång med och ger oss rätt bra inblick i våran kod.
+Jag tror att med lite mer tid och kunskap skulle jag kunna få upp test täckningen och hur dessa två tjänster kan testa och analysera min kod ännu bättre. Det enda begränsningar jag ser just nu är förmågan att utföra tester på frontend delar och socket.io också. 
+Jag tycker att dom ger en bra information om kvaliteten på min kod och om jag har några kända buggar eller säkerhetshål. 
+Jag är nöjd med mitt betyg för kodkvalitet vore det inte för min seed så skulle det vara ännu bättre :)
