@@ -19,11 +19,7 @@ router.get('/:id',
         return docs;
     });
     var depot = await populateDepot(user.depot)
-    // var depot = await Depot.findById(user.depot, async function (err, docs) {
-    //     var test = await docs.populate('items.Product')
-    //     return test;
-    // });
-    console.log(depot)
+ 
     const data = {
         data: {
             title: "Depå",
