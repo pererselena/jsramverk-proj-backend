@@ -5,9 +5,7 @@ var Depot = require('../models/depot');
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/trading');
-Product.collection.drop();
-User.collection.drop()
-Depot.collection.drop();
+
 
 async function cleanup() {
     try {
